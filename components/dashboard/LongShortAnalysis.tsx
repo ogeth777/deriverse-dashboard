@@ -2,9 +2,10 @@
 'use client';
 
 import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip, Legend } from 'recharts';
+import { Trade } from '@/lib/mockData';
 
 interface LongShortAnalysisProps {
-  data: any[];
+  data: Trade[];
 }
 
 export const LongShortAnalysis = ({ data }: LongShortAnalysisProps) => {

@@ -88,12 +88,12 @@ export default function Home() {
       maxDrawdown,
       profitFactor,
       limitOrders: {
-        count: filteredTrades.filter(t => (t as any).orderType === 'Limit').length,
-        winRate: (filteredTrades.filter(t => (t as any).orderType === 'Limit' && t.status === 'Win').length / filteredTrades.filter(t => (t as any).orderType === 'Limit').length) * 100 || 0
+        count: filteredTrades.filter(t => t.orderType === 'Limit').length,
+        winRate: (filteredTrades.filter(t => t.orderType === 'Limit' && t.status === 'Win').length / filteredTrades.filter(t => t.orderType === 'Limit').length) * 100 || 0
       },
       marketOrders: {
-        count: filteredTrades.filter(t => (t as any).orderType === 'Market').length,
-        winRate: (filteredTrades.filter(t => (t as any).orderType === 'Market' && t.status === 'Win').length / filteredTrades.filter(t => (t as any).orderType === 'Market').length) * 100 || 0
+        count: filteredTrades.filter(t => t.orderType === 'Market').length,
+        winRate: (filteredTrades.filter(t => t.orderType === 'Market' && t.status === 'Win').length / filteredTrades.filter(t => t.orderType === 'Market').length) * 100 || 0
       }
     };
   }, [filteredTrades, selectedSymbol]);
