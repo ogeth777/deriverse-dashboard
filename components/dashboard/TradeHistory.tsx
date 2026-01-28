@@ -136,7 +136,13 @@ export const TradeHistory = ({ trades }: TradeHistoryProps) => {
                   {trade.pnl > 0 ? '+' : ''}${trade.pnl.toFixed(2)}
                 </td>
                 <td className="px-6 py-4 text-center">
-                  <button className="text-zinc-600 hover:text-white transition-colors p-2 rounded-lg hover:bg-white/5">
+                  <button 
+                    onClick={() => handleOpenNote(trade)}
+                    className={`transition-colors p-2 rounded-lg hover:bg-white/5 ${
+                      localNotes[trade.id] ? 'text-violet-400' : 'text-zinc-600 hover:text-white'
+                    }`}
+                    title={localNotes[trade.id] ? "View note" : "Add note"}
+                  >
                     <MessageSquarePlus size={16} />
                   </button>
                 </td>
