@@ -2,9 +2,11 @@
 'use client';
 
 import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
+import { getHours, parseISO } from 'date-fns';
 
 interface Trade {
   pnl: number;
+  timestamp: string;
 }
 
 interface SessionAnalysisProps {
@@ -12,19 +14,25 @@ interface SessionAnalysisProps {
 }
 
 export const SessionAnalysis = ({ data }: SessionAnalysisProps) => {
-  // Generate mock hourly data based on total trades
+  // Initialize hourly buckets
   const hourlyData = Array.from({ length: 24 }, (_, i) => ({
     hour: `${i}:00`,
     pnl: 0,
     count: 0
   }));
 
-  // Distribute trades randomly across hours (since mock data doesn't have time)
-  // In a real app, we would parse trade.date timestamp
+  // Aggregate trades by hour of day
   data.forEach(trade => {
-    const hour = Math.floor(Math.random() * 24);
-    hourlyData[hour].pnl += trade.pnl;
-    hourlyData[hour].count += 1;
+    try {
+      const date = parseISO(trade.timestamp);
+      const hour = getHours(date);
+      if (hour >= 0 && hour < 24) {
+        hourlyData[hour].pnl += trade.pnl;
+        hourlyData[hour].count += 1;
+      }
+    } catch (e) {
+      console.warn('Invalid date format', trade.timestamp);
+    }
   });
 
   return (

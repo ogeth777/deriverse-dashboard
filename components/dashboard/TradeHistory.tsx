@@ -1,5 +1,8 @@
 
-import { MessageSquarePlus } from 'lucide-react';
+'use client';
+
+import { useState } from 'react';
+import { MessageSquarePlus, X, Save } from 'lucide-react';
 
 interface Trade {
   id: string;
@@ -11,6 +14,7 @@ interface Trade {
   pnl: number;
   status: 'Win' | 'Loss';
   date: string;
+  note?: string;
 }
 
 interface TradeHistoryProps {
@@ -18,8 +22,70 @@ interface TradeHistoryProps {
 }
 
 export const TradeHistory = ({ trades }: TradeHistoryProps) => {
+  const [selectedTrade, setSelectedTrade] = useState<Trade | null>(null);
+  const [note, setNote] = useState('');
+  // In a real app, this would be persisted to a backend or local storage
+  const [localNotes, setLocalNotes] = useState<Record<string, string>>({});
+
+  const handleOpenNote = (trade: Trade) => {
+    setSelectedTrade(trade);
+    setNote(localNotes[trade.id] || '');
+  };
+
+  const handleSaveNote = () => {
+    if (selectedTrade) {
+      setLocalNotes(prev => ({
+        ...prev,
+        [selectedTrade.id]: note
+      }));
+      setSelectedTrade(null);
+    }
+  };
+
   return (
-    <div className="w-full">
+    <div className="w-full relative">
+      {/* Annotation Modal */}
+      {selectedTrade && (
+        <div className="absolute inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm rounded-2xl">
+          <div className="bg-[#0A0A0A] border border-white/10 p-6 rounded-xl w-full max-w-md m-4 shadow-2xl">
+            <div className="flex justify-between items-center mb-4">
+              <h4 className="text-lg font-bold text-white">Trade Note</h4>
+              <button onClick={() => setSelectedTrade(null)} className="text-zinc-500 hover:text-white">
+                <X size={20} />
+              </button>
+            </div>
+            <div className="mb-4">
+              <div className="flex justify-between text-sm text-zinc-400 mb-2">
+                <span>{selectedTrade.symbol}</span>
+                <span className={selectedTrade.pnl > 0 ? 'text-emerald-400' : 'text-rose-400'}>
+                  {selectedTrade.pnl > 0 ? '+' : ''}${selectedTrade.pnl.toFixed(2)}
+                </span>
+              </div>
+              <textarea 
+                value={note}
+                onChange={(e) => setNote(e.target.value)}
+                placeholder="Add your analysis here..."
+                className="w-full h-32 bg-white/5 border border-white/10 rounded-lg p-3 text-zinc-200 focus:outline-none focus:border-violet-500/50 resize-none"
+              />
+            </div>
+            <div className="flex justify-end gap-3">
+              <button 
+                onClick={() => setSelectedTrade(null)}
+                className="px-4 py-2 text-sm font-medium text-zinc-400 hover:text-white transition-colors"
+              >
+                Cancel
+              </button>
+              <button 
+                onClick={handleSaveNote}
+                className="px-4 py-2 text-sm font-medium bg-violet-600 hover:bg-violet-500 text-white rounded-lg flex items-center gap-2 transition-colors"
+              >
+                <Save size={16} /> Save Note
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
       <div className="p-6 border-b border-white/5 flex justify-between items-center bg-[#0A0A0A]">
         <div>
           <h3 className="text-lg font-bold text-white">Recent Trades</h3>

@@ -111,43 +111,6 @@ export default function Home() {
         <div className="absolute bottom-[-10%] right-[10%] w-[400px] h-[400px] bg-blue-600/10 blur-[100px] rounded-full mix-blend-screen" />
       </div>
 
-      {/* Header */}
-      <header className="border-b border-white/5 bg-[#050505]/80 backdrop-blur-xl sticky top-0 z-50">
-        <div className="w-full px-6 md:px-8 h-20 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <div className="relative w-10 h-10 overflow-hidden rounded-full border border-white/10">
-              <Image 
-                src="/Deriverse.jpg" 
-                alt="Deriverse Logo" 
-                fill
-                className="object-cover"
-              />
-            </div>
-            <div className="flex flex-col">
-              <h1 className="text-2xl font-bold tracking-tight bg-gradient-to-r from-white via-white to-white/70 bg-clip-text text-transparent">
-                deriverse
-              </h1>
-              <span className="text-[10px] uppercase tracking-[0.2em] text-zinc-500 font-medium">Analytics</span>
-            </div>
-          </div>
-          <div className="flex items-center gap-6">
-             <nav className="hidden md:flex items-center gap-6 text-sm font-medium text-zinc-400">
-               <a href="#" className="hover:text-white transition-colors">Dashboard</a>
-               <a href="#" className="hover:text-white transition-colors">Leaderboard</a>
-               <a href="#" className="hover:text-white transition-colors">Competitions</a>
-             </nav>
-             <div className="h-4 w-[1px] bg-white/10 hidden md:block"></div>
-             <button className="flex items-center gap-2 text-sm text-zinc-400 hover:text-white transition-colors">
-               Docs <ExternalLink size={14} />
-             </button>
-             <button className="relative group bg-white/5 hover:bg-white/10 border border-white/10 px-5 py-2.5 rounded-xl text-sm font-semibold transition-all duration-300 hover:shadow-[0_0_20px_rgba(139,92,246,0.15)] overflow-hidden">
-               <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-violet-600/20 to-blue-600/20 opacity-0 group-hover:opacity-100 transition-opacity" />
-               <span className="relative z-10 bg-gradient-to-r from-violet-400 to-blue-400 bg-clip-text text-transparent group-hover:text-white transition-colors">Connect Wallet</span>
-             </button>
-          </div>
-        </div>
-      </header>
-
       <main className="w-full px-6 md:px-8 py-10 space-y-10 relative z-10">
         
         {/* Controls Section */}
