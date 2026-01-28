@@ -2,14 +2,17 @@
 'use client';
 
 import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip, Legend } from 'recharts';
-import { MOCK_TRADES } from '@/lib/mockData';
 
-export const LongShortAnalysis = () => {
-  const longs = MOCK_TRADES.filter(t => t.type === 'Long');
-  const shorts = MOCK_TRADES.filter(t => t.type === 'Short');
+interface LongShortAnalysisProps {
+  data: any[];
+}
 
-  const longWinRate = (longs.filter(t => t.status === 'Win').length / longs.length) * 100;
-  const shortWinRate = (shorts.filter(t => t.status === 'Win').length / shorts.length) * 100;
+export const LongShortAnalysis = ({ data }: LongShortAnalysisProps) => {
+  const longs = data.filter(t => t.type === 'Long');
+  const shorts = data.filter(t => t.type === 'Short');
+
+  const longWinRate = longs.length > 0 ? (longs.filter(t => t.status === 'Win').length / longs.length) * 100 : 0;
+  const shortWinRate = shorts.length > 0 ? (shorts.filter(t => t.status === 'Win').length / shorts.length) * 100 : 0;
 
   const data = [
     { name: 'Longs', value: longs.length, winRate: longWinRate },

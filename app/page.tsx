@@ -245,7 +245,7 @@ export default function Home() {
           </div>
           
           <div className="space-y-6">
-            <LongShortAnalysis />
+            <LongShortAnalysis data={filteredTrades} />
             <SessionAnalysis data={filteredTrades} />
             
             <div className="bg-[#0A0A0A] border border-white/5 rounded-2xl p-6 backdrop-blur-sm">
