@@ -55,9 +55,9 @@ export const LongShortAnalysis = ({ data }: LongShortAnalysisProps) => {
                 boxShadow: '0 4px 20px rgba(0,0,0,0.5)'
               }}
               itemStyle={{ color: '#fff' }}
-              formatter={(value: any, name: any, props: any) => [
+              formatter={(value: any, name: string | undefined, props: any) => [
                 `${value} trades (${props.payload.winRate.toFixed(1)}% WR)`, 
-                name
+                name || ''
               ]}
             />
             <Legend verticalAlign="bottom" height={36} iconType="circle" />

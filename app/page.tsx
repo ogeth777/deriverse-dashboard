@@ -1,4 +1,3 @@
-
 'use client';
 
 import { useState, useMemo } from 'react';
@@ -9,7 +8,7 @@ import { TradeHistory } from '@/components/dashboard/TradeHistory';
 import { LongShortAnalysis } from '@/components/dashboard/LongShortAnalysis';
 import { SessionAnalysis } from '@/components/dashboard/SessionAnalysis';
 import Image from 'next/image';
-import { Wallet, TrendingUp, BarChart3, PieChart, Activity, Filter, ChevronDown, ExternalLink } from 'lucide-react';
+import { Wallet, TrendingUp, BarChart3, PieChart, Activity, Filter, ChevronDown, ExternalLink, LayoutDashboard, Trophy, Swords, BookOpen, Settings, HelpCircle, LogOut } from 'lucide-react';
 import { subDays, isAfter, parseISO } from 'date-fns';
 
 export default function Home() {
@@ -114,7 +113,7 @@ export default function Home() {
 
       {/* Header */}
       <header className="border-b border-white/5 bg-[#050505]/80 backdrop-blur-xl sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+        <div className="w-full px-6 md:px-8 h-20 flex items-center justify-between">
           <div className="flex items-center gap-3">
             <div className="relative w-10 h-10 overflow-hidden rounded-full border border-white/10">
               <Image 
@@ -132,7 +131,6 @@ export default function Home() {
             </div>
           </div>
           <div className="flex items-center gap-6">
-             {/* 
              <nav className="hidden md:flex items-center gap-6 text-sm font-medium text-zinc-400">
                <a href="#" className="hover:text-white transition-colors">Dashboard</a>
                <a href="#" className="hover:text-white transition-colors">Leaderboard</a>
@@ -146,12 +144,11 @@ export default function Home() {
                <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-violet-600/20 to-blue-600/20 opacity-0 group-hover:opacity-100 transition-opacity" />
                <span className="relative z-10 bg-gradient-to-r from-violet-400 to-blue-400 bg-clip-text text-transparent group-hover:text-white transition-colors">Connect Wallet</span>
              </button>
-             */}
           </div>
         </div>
       </header>
 
-      <main className="max-w-7xl mx-auto px-6 py-10 space-y-10 relative z-10">
+      <main className="w-full px-6 md:px-8 py-10 space-y-10 relative z-10">
         
         {/* Controls Section */}
         <div className="flex flex-col md:flex-row justify-between items-end gap-6">
