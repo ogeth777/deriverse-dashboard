@@ -66,7 +66,7 @@ export const SessionAnalysis = ({ data }: SessionAnalysisProps) => {
                 boxShadow: '0 4px 20px rgba(0,0,0,0.5)'
               }}
               itemStyle={{ color: '#fff' }}
-              formatter={(value: number) => [`$${value.toFixed(2)}`, 'PnL']}
+              formatter={(value: any) => [`$${Number(value).toFixed(2)}`, 'PnL']}
             />
             <Bar dataKey="pnl" radius={[4, 4, 0, 0]}>
               {hourlyData.map((entry, index) => (

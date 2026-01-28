@@ -73,7 +73,7 @@ export const PnLChart = ({ data }: PnLChartProps) => {
               boxShadow: '0 4px 20px rgba(0,0,0,0.5)'
             }}
             itemStyle={{ color: '#fff' }}
-            formatter={(value: number) => [`$${value.toFixed(2)}`, 'Cumulative PnL']}
+            formatter={(value: any) => [`$${Number(value).toFixed(2)}`, 'Cumulative PnL']}
             labelStyle={{ color: '#a1a1aa', marginBottom: '4px' }}
           />
           <Area 

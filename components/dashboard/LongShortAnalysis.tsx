@@ -51,7 +51,7 @@ export const LongShortAnalysis = () => {
                 boxShadow: '0 4px 20px rgba(0,0,0,0.5)'
               }}
               itemStyle={{ color: '#fff' }}
-              formatter={(value: number, name: string, props: any) => [
+              formatter={(value: any, name: string, props: any) => [
                 `${value} trades (${props.payload.winRate.toFixed(1)}% WR)`, 
                 name
               ]}
