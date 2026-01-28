@@ -14,7 +14,7 @@ export const LongShortAnalysis = ({ data }: LongShortAnalysisProps) => {
   const longWinRate = longs.length > 0 ? (longs.filter(t => t.status === 'Win').length / longs.length) * 100 : 0;
   const shortWinRate = shorts.length > 0 ? (shorts.filter(t => t.status === 'Win').length / shorts.length) * 100 : 0;
 
-  const data = [
+  const chartData = [
     { name: 'Longs', value: longs.length, winRate: longWinRate },
     { name: 'Shorts', value: shorts.length, winRate: shortWinRate },
   ];
@@ -32,7 +32,7 @@ export const LongShortAnalysis = ({ data }: LongShortAnalysisProps) => {
         <ResponsiveContainer width="100%" height="100%" minWidth={0} minHeight={0}>
           <PieChart>
             <Pie
-              data={data}
+              data={chartData}
               cx="50%"
               cy="50%"
               innerRadius={60}
@@ -41,7 +41,7 @@ export const LongShortAnalysis = ({ data }: LongShortAnalysisProps) => {
               dataKey="value"
               stroke="none"
             >
-              {data.map((entry, index) => (
+              {chartData.map((entry, index) => (
                 <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
               ))}
             </Pie>
