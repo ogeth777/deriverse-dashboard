@@ -1,36 +1,69 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Getting Started
+# Deriverse Trading Analytics Dashboard 📊
 
-First, run the development server:
+A comprehensive trading analytics solution designed for the Deriverse ecosystem. This dashboard provides professional-grade insights, journal capabilities, and risk management metrics for active Solana traders.
 
+![Deriverse Dashboard Preview](https://via.placeholder.com/1200x630.png?text=Deriverse+Analytics+Dashboard)
+
+## 🚀 Features
+
+This solution implements all key requirements from the bounty scope:
+
+### Core Analytics
+- **Total PnL Tracking:** Real-time visualization of profit/loss with cumulative performance chart.
+- **Win Rate & Volume:** Detailed breakdown of trading success and volume metrics.
+- **Fees Analysis:** Tracking of trading costs and fees paid.
+
+### Advanced Metrics
+- **Long/Short Bias:** Analysis of directional performance (Win rate for Longs vs Shorts).
+- **Time-Based Analysis:** Hourly performance heatmap to identify best trading sessions.
+- **Risk Management:** Tracking of Max Drawdown, Profit Factor, and Sharpe Ratio.
+- **Avg Win / Avg Loss:** Key metrics to evaluate risk-reward ratio.
+
+### Interactive Tools
+- **Trading Journal:** Detailed history of all trades with annotation capabilities.
+- **Symbol Filtering:** Dynamic filtering to analyze specific pairs (e.g., SOL-PERP vs BTC-PERP).
+- **Time Range Selection:** Filter performance by date (Last 7 days, 30 days, All time).
+
+## 🛠 Tech Stack
+
+- **Framework:** Next.js 14 (App Router)
+- **Styling:** Tailwind CSS (Dark Mode optimized)
+- **Charts:** Recharts (High-performance visualizations)
+- **Icons:** Lucide React
+- **Language:** TypeScript
+
+## 📦 Installation
+
+1. Clone the repository:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/your-username/deriverse-dashboard.git
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Install dependencies:
+```bash
+cd deriverse-dashboard
+npm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. Run the development server:
+```bash
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+4. Open [http://localhost:3000](http://localhost:3000) to view the dashboard.
 
-## Learn More
+## 🔮 Future Improvements
 
-To learn more about Next.js, take a look at the following resources:
+- **Wallet Connection:** Integration with Solana Wallet Adapter for real on-chain data.
+- **Live Price Feed:** Pyth Network integration for real-time asset pricing.
+- **CSV Export:** Full export of trading history for tax/audit purposes.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 📄 License
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+MIT License. Built for the Superteam Earn Bounty.
 
-## Deploy on Vercel
+## 👤 Author
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **Twitter/X:** [@YourHandle](https://twitter.com/YourHandle)
+- **GitHub:** [YourUsername](https://github.com/YourUsername)
