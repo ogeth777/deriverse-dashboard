@@ -113,6 +113,19 @@ export default function Home() {
 
       <main className="w-full px-6 md:px-8 py-10 space-y-10 relative z-10">
         
+        {/* Header with Logo */}
+        <div className="flex items-center gap-4 mb-2">
+          <div className="relative w-12 h-12 rounded-xl overflow-hidden shadow-lg border border-white/10 group">
+            <Image 
+              src="/Deriverse.jpg" 
+              alt="Deriverse Logo" 
+              fill 
+              className="object-cover group-hover:scale-110 transition-transform duration-500"
+            />
+          </div>
+          <h1 className="text-2xl font-bold text-white tracking-tight">Deriverse</h1>
+        </div>
+
         {/* Controls Section */}
         <div className="flex flex-col md:flex-row justify-between items-end gap-6">
           <div className="space-y-2">
@@ -183,7 +196,7 @@ export default function Home() {
         {/* Main Charts Area */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           <div className="lg:col-span-2 space-y-6">
-            <div className="bg-[#0A0A0A] border border-white/5 rounded-2xl p-1 shadow-xl">
+            <div className="bg-[#0A0A0A] border border-white/5 rounded-2xl p-1 shadow-xl h-[420px]">
               <PnLChart data={filteredTrades} />
             </div>
             
